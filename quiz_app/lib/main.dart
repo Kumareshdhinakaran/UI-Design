@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/answer.dart';
-import 'package:quiz_app/question.dart';
+import 'package:quiz_app/quiz.dart';
+import 'package:quiz_app/result.dart';
 
 void main() => runApp(QuizApp());
 
@@ -10,43 +10,55 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
+  final _questions = const [
+    {
+      'questionText': 'what\'s your favorite color? ',
+      'answers': [
+        {'text': 'black', 'score': 10},
+        {'text': 'white', 'score': 9},
+        {'text': 'blue', 'score': 8},
+      ],
+    },
+    {
+      'questionText': 'what\'s you favorite animal? ',
+      'answers': [
+        {'text': 'rat', 'score': 10},
+        {'text': 'rabbit', 'score': 9},
+        {'text': 'dog', 'score': 8},
+      ],
+    }
+  ];
   var _questionIndex = 0;
-  void _answerQuestions() {
+  var _totalScore = 0;
+  void _answerQuestions(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex += 1;
     });
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    const questions = [
-      {
-        'questionText': 'what\'s your favorite color? ',
-        'answers': ['black', 'white', 'blue'],
-      },
-      {
-        'questionText': 'what\'s you favorite animal? ',
-        'answers': ['rabbit', 'rat', 'dog'],
-      }
-    ];
-
     return MaterialApp(
       title: 'QuizApp',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Quiz'),
         ),
-        body: Column(
-          children: <Widget>[
-            Question(
-              questions[_questionIndex]['questionText'],
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestions, answer);
-            }).toList(),
-          ],
-        ),
+        body: (_questionIndex < _questions.length)
+            ? Quiz(
+                answerQuestions: _answerQuestions,
+                questions: _questions,
+                questionIndex: _questionIndex,
+              )
+            : Result(_totalScore, _resetQuiz),
       ),
     );
   }
