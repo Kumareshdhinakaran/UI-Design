@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample/screens/feed_screen.dart';
 import 'package:sample/widgets/Profile_details.dart';
-import 'package:sample/widgets/home_page.dart';
 
 class ProfileScreen extends StatelessWidget {
   final controller = PageController(
@@ -71,6 +70,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       IconButton(
                         icon: Icon(Icons.more_horiz),
+                        onPressed: () {},
                       ),
                     ],
                   ),

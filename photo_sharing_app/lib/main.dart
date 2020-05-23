@@ -1,4 +1,4 @@
-import "package:flutter/material.dart;
+import "package:flutter/material.dart";
 import 'package:sample/screens/feed_screen.dart';
 
 void main() {
