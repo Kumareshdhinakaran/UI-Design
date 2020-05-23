@@ -56,9 +56,9 @@ class _ProductsViewState extends State<ProductsView> {
     return _value;
   }
 
-  void _cartValue(num val, int avail, int s_no) {
+  void _cartValue(num val, int avail, int sNo) {
     setState(() {
-      _val = s_no;
+      _val = sNo;
       _value += val;
       _noOfItems += 1;
       _availab = avail;

@@ -4,7 +4,6 @@ import 'package:udecor/locator.dart';
 import 'package:udecor/services/navigation_service.dart';
 import 'package:udecor/ui/widgets/appbar.dart';
 import 'package:udecor/ui/widgets/drawer_widget.dart';
-import 'package:udecor/ui/widgets/text_link.dart';
 
 class OrderConfirmationView extends StatelessWidget {
   final NavigationService _navigationService = locator<NavigationService>();

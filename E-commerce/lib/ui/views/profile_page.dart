@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:udecor/locator.dart';
-import 'package:udecor/models/user.dart';
 import 'package:udecor/services/authentication_service.dart';
 import 'package:udecor/ui/widgets/appbar.dart';
 import 'package:udecor/ui/widgets/drawer_widget.dart';
