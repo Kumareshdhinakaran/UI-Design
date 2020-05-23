@@ -1,5 +1,5 @@
 {
     "workbench.preferredDarkColorTheme": "Monokai",
-    "workbench.colorTheme": "Monokai",
-    "editor.fontSize": 16
+    "workbench.colorTheme": "dark-plus-syntax",
+    "editor.fontSize": 15
 }
